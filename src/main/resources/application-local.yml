@@ -3,7 +3,7 @@ spring:
     hibernate.ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
   datasource:
-    url: jdbc:h2:mem:checklist-app-db
+    url: jdbc:h2:mem:pascoa_db
     driverClassName: org.h2.Driver
     username: sa
     password: password

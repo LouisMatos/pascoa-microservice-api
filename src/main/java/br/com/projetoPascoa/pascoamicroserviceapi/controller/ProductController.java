@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoPascoa.pascoamicroserviceapi.dto.ProductDTO;
+import br.com.projetoPascoa.pascoamicroserviceapi.entity.ProductEntity;
 import br.com.projetoPascoa.pascoamicroserviceapi.service.ProductService;
 
 @RestController
@@ -21,12 +24,14 @@ public class ProductController {
 
 	private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
-	@GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> addNewProduct() {
+	@PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ProductEntity> addNewProduct(@RequestBody ProductDTO productDTO) {
 
-		LOG.info("DEU BOM ");
+		ProductEntity product = productService.saveNewProduct(productDTO);
 
-		return new ResponseEntity<String>("Deu bom ", HttpStatus.OK);
+		LOG.info("Produto cadastrado com sucesso!");
+
+		return new ResponseEntity<ProductEntity>(product, HttpStatus.OK);
 	}
 
 }
