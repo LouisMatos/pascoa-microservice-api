@@ -28,11 +28,13 @@ public class ProductEntity {
 
 	private String guid;
 
-	private String name;
+	private String nome;
+	
+	private float preco;
 
 	@Override
 	public String toString() {
-		return "ProductEntity [name=" + name + ", guid=" + guid + "]";
+		return "ProductEntity [productId=" + productId + ", guid=" + guid + ", nome=" + nome + ", preco=" + preco + "]";
 	}
 
 }
