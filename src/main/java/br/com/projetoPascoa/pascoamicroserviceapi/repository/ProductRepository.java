@@ -10,6 +10,6 @@ import br.com.projetoPascoa.pascoamicroserviceapi.entity.ProductEntity;
 @Repository
 public interface ProductRepository extends PagingAndSortingRepository<ProductEntity, Long> {
 
-	Optional<ProductEntity> findByName(String name);
+	Optional<ProductEntity> findByNome(String nome);
 
 }

@@ -9,11 +9,13 @@ public class ProductDTO {
 
 	private String guid;
 
-	private String name;
+	private String nome;
+
+	private float preco;
 
 	@Override
 	public String toString() {
-		return "ProductDTO [guid=" + guid + ", name=" + name + "]";
+		return "ProductDTO [guid=" + guid + ", nome=" + nome + ", preco=" + preco + "]";
 	}
 
 }
