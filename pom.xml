@@ -96,6 +96,11 @@
 			</plugin>
 
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+
+			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.13</version>
@@ -133,10 +138,10 @@
 					<scope>runtime</scope>
 				</dependency>
 			</dependencies>
-			 <properties>
-                <project.packaging>jar</project.packaging>
-                <tomcat.scope>compile</tomcat.scope>
-            </properties>
+			<properties>
+				<project.packaging>jar</project.packaging>
+				<tomcat.scope>compile</tomcat.scope>
+			</properties>
 		</profile>
 		<profile>
 			<id>aws</id>
@@ -147,7 +152,7 @@
 					<scope>runtime</scope>
 				</dependency>
 			</dependencies>
-			
+
 		</profile>
 	</profiles>
 
