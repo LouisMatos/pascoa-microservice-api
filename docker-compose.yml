@@ -38,8 +38,6 @@ services:
       - net_back
     depends_on:
       - db_pascoa
-    links:
-      - db_pascoa
     deploy:
       resources:
         limits:
