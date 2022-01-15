@@ -1,14 +1,10 @@
 package br.com.projetoPascoa.pascoamicroserviceapi.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,22 +13,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
-@Table(indexes = { @Index(name = "ID_PRODUCT", columnList = "productId") })
-public class ProductEntity {
+@Table(indexes = { @Index(name = "ID_PRODUCT", columnList = "id") })
+public class ProductEntity extends BaseEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long productId;
+	private String nome;
 
-	private String guid;
-
-	private String name;
+	private float preco;
 
 	@Override
 	public String toString() {
-		return "ProductEntity [name=" + name + ", guid=" + guid + "]";
+		return "Produto [nome=" + nome + ", preco=" + preco + "]";
 	}
 
 }

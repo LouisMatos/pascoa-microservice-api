@@ -23,8 +23,9 @@ public class ProductService {
 
 		ProductEntity entity = new ProductEntity();
 
-		entity.setName(productDTO.getName());
+		entity.setNome(productDTO.getNome());
 		entity.setGuid(UUID.randomUUID().toString());
+		entity.setPreco(productDTO.getPreco());
 
 		LOG.info("Cadastrando novo produto [ {} ]", entity);
 
