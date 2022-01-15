@@ -81,6 +81,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>pascoa-microservice-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -98,9 +99,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				  </configuration>
 			</plugin>
 
-			<plugin>
+		<!-- 	<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.13</version>
@@ -121,7 +126,7 @@
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
 					</buildArgs>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 
@@ -144,7 +149,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>aws</id>
+			<id>mysql</id>
 			<dependencies>
 				<dependency>
 					<groupId>mysql</groupId>
