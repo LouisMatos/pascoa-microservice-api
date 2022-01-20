@@ -21,7 +21,6 @@ ENTRYPOINT java -jar pascoa-microservice-api.jar
 #WORKDIR /app
 #ENTRYPOINT java -jar pascoa-microservice-api.jar
 
-
 #FROM openjdk:8-jdk-alpine
 #VOLUME /tmp
 #COPY target/pascoa-microservice-api-*.jar app.jar
