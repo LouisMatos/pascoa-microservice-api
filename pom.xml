@@ -78,10 +78,26 @@
 			<version>2.9.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<!--AUX TOOLS-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
-	<finalName>pascoa-microservice-api</finalName>
+		<finalName>pascoa-microservice-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -102,10 +118,10 @@
 				<version>3.1.0</version>
 				<configuration>
 					<skipTests>true</skipTests>
-				  </configuration>
+				</configuration>
 			</plugin>
 
-		<!-- 	<plugin>
+			<!-- 	<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.13</version>
