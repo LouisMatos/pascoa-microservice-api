@@ -5,7 +5,6 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,10 +13,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
-@Table(indexes = { @Index(name = "ID_PRODUCT", columnList = "id") })
-public class ProductEntity extends BaseEntity {
+@Table(indexes = { @Index(name = "ID_SELLER", columnList = "id") })
+public class SellerEntity extends BaseEntity {
 
 	private String nome;
 

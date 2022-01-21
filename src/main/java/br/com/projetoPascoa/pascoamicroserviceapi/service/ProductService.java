@@ -1,6 +1,5 @@
 package br.com.projetoPascoa.pascoamicroserviceapi.service;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -33,9 +32,8 @@ public class ProductService {
 		return this.productRepository.save(entity);
 	}
 
-	
-	public List<ProductEntity> getAllProducts() {
-		return (List<ProductEntity>) this.productRepository.findAll();
+	public Iterable<ProductEntity> findAllProducts() {
+		return this.productRepository.findAll();
 	}
-	
+
 }
