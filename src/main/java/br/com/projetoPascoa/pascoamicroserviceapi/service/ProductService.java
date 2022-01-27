@@ -1,5 +1,6 @@
 package br.com.projetoPascoa.pascoamicroserviceapi.service;
 
+import java.util.Date;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -26,6 +27,9 @@ public class ProductService {
 		entity.setNome(productDTO.getNome());
 		entity.setGuid(UUID.randomUUID().toString());
 		entity.setPreco(productDTO.getPreco());
+		entity.setEstoque(productDTO.getEstoque());
+		entity.setDataCadastro(new Date());
+		entity.setDescricao(productDTO.getDescricao());
 
 		LOG.info("Cadastrando novo produto [ {} ]", entity);
 

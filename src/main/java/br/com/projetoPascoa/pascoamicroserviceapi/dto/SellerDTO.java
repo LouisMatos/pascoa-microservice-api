@@ -1,5 +1,6 @@
 package br.com.projetoPascoa.pascoamicroserviceapi.dto;
 
+import br.com.projetoPascoa.pascoamicroserviceapi.entity.SellerEntity;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -7,15 +8,25 @@ import lombok.Getter;
 @Builder
 public class SellerDTO {
 
-	private String guid;
+	private Long id;
 
 	private String nome;
 
-	private float preco;
+	private String sexo;
+
+	private String telefone;
+
+	private String celular;
+
+	public static SellerDTO toDTO(SellerEntity sellerEntity) {
+		return SellerDTO.builder().id(sellerEntity.getId()).nome(sellerEntity.getNome()).sexo(sellerEntity.getSexo())
+				.telefone(sellerEntity.getTelefone()).celular(sellerEntity.getCelular()).build();
+	}
 
 	@Override
 	public String toString() {
-		return "ProductDTO [guid=" + guid + ", nome=" + nome + ", preco=" + preco + "]";
+		return "SellerDTO [id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", telefone=" + telefone + ", celular="
+				+ celular + "]";
 	}
 
 }

@@ -6,8 +6,6 @@ import java.util.stream.StreamSupport;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,30 +18,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetoPascoa.pascoamicroserviceapi.dto.ProductDTO;
-import br.com.projetoPascoa.pascoamicroserviceapi.entity.ProductEntity;
 import br.com.projetoPascoa.pascoamicroserviceapi.service.ProductService;
 
 @RestController
 @Validated
-@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/v1/api/product", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController {
 
 	@Autowired
 	private ProductService productService;
 
-	private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
+	@PostMapping
+	public ResponseEntity<?> addNewProduct(@Valid @RequestBody ProductDTO productRequest) {
 
-	@PostMapping("/v1/api/product")
-	public ResponseEntity<?> addNewProduct(@Valid @RequestBody ProductDTO productDTO) {
+		ProductDTO productDTO = ProductDTO.toDTO(productService.saveNewProduct(productRequest));
 
-		ProductEntity product = productService.saveNewProduct(productDTO);
-
-		LOG.info("Produto cadastrado com sucesso!");
-
-		return new ResponseEntity<>(product, HttpStatus.OK);
+		return new ResponseEntity<>(productDTO, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping
 	public ResponseEntity<List<ProductDTO>> findAllProducts() {
 
 		List<ProductDTO> response = StreamSupport.stream(this.productService.findAllProducts().spliterator(), false)
