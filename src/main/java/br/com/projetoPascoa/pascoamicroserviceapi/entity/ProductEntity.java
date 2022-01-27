@@ -1,5 +1,7 @@
 package br.com.projetoPascoa.pascoamicroserviceapi.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
@@ -23,9 +25,16 @@ public class ProductEntity extends BaseEntity {
 
 	private float preco;
 
+	private Integer estoque;
+
+	private Date dataCadastro;
+	
+	private String descricao;
+
 	@Override
 	public String toString() {
-		return "Produto [nome=" + nome + ", preco=" + preco + "]";
+		return "ProductEntity [nome=" + nome + ", preco=" + preco + ", estoque=" + estoque + ", dataCadastro="
+				+ dataCadastro + ", descricao=" + descricao + "]";
 	}
 
 }
