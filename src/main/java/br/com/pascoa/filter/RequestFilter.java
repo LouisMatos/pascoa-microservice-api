@@ -34,7 +34,7 @@ public class RequestFilter implements Filter {
 			log.info("Request content type is {}", servletRequest.getContentType());
 			filterChain.doFilter(servletRequest, servletResponse);
 		} finally {
-			MDC.remove("requestId");
+			//MDC.remove("requestId");
 		}
 
 	}

@@ -6,7 +6,7 @@
 	<appender name="Console"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d [%thread] %-5level %-50logger{40} : [%replace(X-reqId=%mdc{requestId}){'X-reqId=$', ''}] %msg%n</pattern>
+			<pattern>%d [%10.10thread{15}] %-5level %-60logger{60} : [%replace(X-reqId=%mdc{requestId}){'X-reqId=$', ''}] %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -14,8 +14,7 @@
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>MyApp.log</file>
 		<encoder>
-			<pattern>%d [%thread] %-5level %-50logger{40} [X-reqId=%X{requestId}]
-				- %msg%n</pattern>
+			<pattern>%d [%thread] %-5level %-50logger{40} [X-reqId=%X{requestId}] - %msg%n</pattern>
 		</encoder>
 
 		<rollingPolicy
